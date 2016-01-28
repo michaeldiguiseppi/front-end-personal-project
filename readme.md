@@ -48,3 +48,7 @@ on Netflix.
 The ability to implement another search that, when searching for a movie title on
 the OMDB API, it also searches youtube for an official trailer for the selected
 movie.  This would be a feature on the search page.
+
+### Pivotal Tracker
+
+My project can be tracked/followed along with on my [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/1525201)
