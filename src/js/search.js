@@ -1,11 +1,10 @@
-var Firebase = require("firebase");
+
 
 
 $(document).on('ready', function() {
 
     /* Set Firebase Reference */
 
-    var myFirebaseRef = new Firebase("https://mmdb-movie-database.firebaseapp.com/");
 
     /* Set placeholder text */
     setSearchPlaceholderText();
@@ -28,7 +27,6 @@ $(document).on('ready', function() {
         $('#reset').click();
         var url = setUrl($(this).attr('id'));
         var result = queryAPIForResults(url);
-        myFirebaseRef.set(result);
      });
 
      $('#reset').on('click', function() {
