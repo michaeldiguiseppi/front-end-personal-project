@@ -2,6 +2,7 @@ $(document).on('ready', function() {
 
     /* Set placeholder text */
     setSearchPlaceholderText();
+    resetForm();
 
     /* Set URL, then run API call with it */
      $('.submit').on('click', function(event) {
@@ -11,6 +12,14 @@ $(document).on('ready', function() {
         var url = setUrl(inputSearchFieldText)
         queryAPIForResults(url);
 
+     });
+
+     /* Allow the user to click the links to search the individual movie */
+
+     $(document).on('click', 'a', function(event) {
+        event.preventDefault();
+        var url = setUrl($(this).attr('id'));
+        queryAPIForResults(url);
      });
 
 });
@@ -54,6 +63,7 @@ function queryAPIForResults (url) {
     }
 
     $.ajax(settings).done(function (response) {
+        resetForm();
         appendDataToDom(response);
     });
 }
@@ -74,18 +84,12 @@ function appendDataToDom (response) {
                 $('#searchResults').append('<li><a href="#" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
             });
     };
-}
+};
 
+/* Reset the form back to the default states */
 
-// if has search do one thing
-// if (response.search)
-
-// else do another
-
-
-
-
-
-
+function resetForm () {
+  $('#reset').click();
+};
 
 
