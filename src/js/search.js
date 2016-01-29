@@ -18,6 +18,7 @@ $(document).on('ready', function() {
 
      $(document).on('click', '.resultLink', function(event) {
         event.preventDefault();
+        $('#reset').click();
         var url = setUrl($(this).attr('id'));
         queryAPIForResults(url);
      });
@@ -93,6 +94,7 @@ function appendDataToDom (response) {
 
 function resetForm () {
   $('#searchResults').text('');
+  $('input[id="titleSearch"]').attr('placeholder', 'Title');
 };
 
 
