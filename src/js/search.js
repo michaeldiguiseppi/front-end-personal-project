@@ -62,11 +62,17 @@ function queryAPIForResults (url) {
 
 function appendDataToDom (movieObj) {
     $('#searchResults').text('');
- for (var key in movieObj) {
-        if (key !== 'Poster')
-            console.log('Key: ', key);
-          $('#searchResults').append('<li>' + key + ': ' + movieObj[key] + '</li>');
-      };
+    if (typeof movieObj === 'Object') {
+        for (var key in movieObj) {
+            if (key !== 'Poster')
+              $('#searchResults').append('<li>' + key + ': ' + movieObj[key] + '</li>');
+          };
+    } else {
+        movieObj.Search.forEach(function(obj) {
+                // $('#results').append('<img src="' + obj.Poster + '">');
+                $('#searchResults').append('<li><a href="#" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
+            });
+    };
 }
 
 
