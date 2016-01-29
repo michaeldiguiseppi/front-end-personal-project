@@ -16,7 +16,7 @@ $(document).on('ready', function() {
 
      /* Allow the user to click the links to search the individual movie */
 
-     $(document).on('click', 'a', function(event) {
+     $(document).on('click', '#resultLink', function(event) {
         event.preventDefault();
         var url = setUrl($(this).attr('id'));
         queryAPIForResults(url);
@@ -85,7 +85,7 @@ function appendDataToDom (response) {
     } else {
         response.Search.forEach(function(obj) {
                 // $('#results').append('<img src="' + obj.Poster + '">');
-                $('#searchResults').append('<li><a href="#" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
+                $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
             });
     };
 };
