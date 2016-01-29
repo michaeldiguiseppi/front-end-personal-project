@@ -16,7 +16,7 @@ $(document).on('ready', function() {
 
      /* Allow the user to click the links to search the individual movie */
 
-     $(document).on('click', '#resultLink', function(event) {
+     $(document).on('click', '.resultLink', function(event) {
         event.preventDefault();
         var url = setUrl($(this).attr('id'));
         queryAPIForResults(url);
@@ -75,7 +75,6 @@ function queryAPIForResults (url) {
 /* Add API data to the DOM once retrieved from API call */
 
 function appendDataToDom (response) {
-    $('#searchResults').text('');
     console.log(response);
     if ( !response.Search ) {
         for (var key in response) {
