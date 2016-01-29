@@ -58,7 +58,10 @@ function queryAPIForResults (url) {
     });
 }
 
+/* Add API data to the DOM once retrieved from API call */
+
 function appendDataToDom (movieObj) {
+    $('#searchResults').text('');
  for (var key in movieObj) {
         if (key !== 'Poster')
             console.log('Key: ', key);
