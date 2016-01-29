@@ -60,21 +60,27 @@ function queryAPIForResults (url) {
 
 /* Add API data to the DOM once retrieved from API call */
 
-function appendDataToDom (movieObj) {
+function appendDataToDom (response) {
     $('#searchResults').text('');
-    if (typeof movieObj === 'Object') {
-        for (var key in movieObj) {
+    console.log(response);
+    if ( !response.Search ) {
+        for (var key in response) {
             if (key !== 'Poster')
-              $('#searchResults').append('<li>' + key + ': ' + movieObj[key] + '</li>');
+              $('#searchResults').append('<li>' + key + ': ' + response[key] + '</li>');
           };
     } else {
-        movieObj.Search.forEach(function(obj) {
+        response.Search.forEach(function(obj) {
                 // $('#results').append('<img src="' + obj.Poster + '">');
                 $('#searchResults').append('<li><a href="#" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
             });
     };
 }
 
+
+// if has search do one thing
+// if (response.search)
+
+// else do another
 
 
 
