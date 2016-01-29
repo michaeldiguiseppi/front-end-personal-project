@@ -10,3 +10,16 @@
     border-right: 2px solid #EEEEEE;
     margin-right: -15px;
 }
+
+
+.navbar p {
+    color: white;
+}
+
+.navbar-bottom {
+    margin-bottom: -20px;
+}
+
+.navbar {
+    border-radius: 0;
+}
