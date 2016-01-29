@@ -1,1 +1,12 @@
 /* add custom styles */
+.jumbotron {
+    margin-top: -20px;
+    color: #317EAC;
+}
+
+
+#searchResults {
+    height: 500px;
+    border-right: 2px solid #EEEEEE;
+    margin-right: -15px;
+}

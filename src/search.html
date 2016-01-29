@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mike's Movie Database</title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" style="border-radius: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MMDB</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="search.html">Search<span class="sr-only">(current)</span></a></li>
+        <li><a href="collection.html">My Collection</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+        <form class="form-horizontal">
+          <fieldset>
+            <h1 class="text-center">Search for Movies</h1>
+            <hr>
+            <div class="form-group">
+              <label for="titleSearch" class="col-lg-2 control-label">Movie Title</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="titleSearch" placeholder="Title">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Search Options</label>
+              <div class="col-lg-10">
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Search by Title
+                  </label>
+                </div>
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Search by Keyword
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2 col-sm-10 col-sm-offset-2">
+                    <button type="reset" class="btn btn-default">Reset Form</button>
+                    <button type="text" class="btn btn-primary submit" data-toggle="modal" data-target="#resultModal">Submit</button>
+                </div>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
+          <hr>
+          <h3 class="text-center">Results</h3>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div id="searchResults"></div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div id="youtubeSearch"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+  </body>
+</html>

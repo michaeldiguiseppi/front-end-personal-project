@@ -2,17 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Untitled</title>
+    <title>Mike's Movie Database</title>
 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/cerulean/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="src/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+<nav class="navbar navbar-inverse" style="border-radius: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MMDB</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="collection.html">My Collection</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="jumbotron text-center">
+        <h1>Mike's Movie Database!</h1>
+        <p>Welcome to Mike's Movie Database.  Use the links at the top of the page to search for movies and add them to your collection.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Picks of the Week</h2>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="container text-center" id="moviePosters">
+      <div class="col-lg-3 col-sm-12">
+        <img src="https://s-media-cache-ak0.pinimg.com/736x/f9/ab/76/f9ab762f2252473cc9fbe1b603efdcc9.jpg">
+        <div class="caption text-center">
+          <h3>RoboCop</h3>
+          <p>2014</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-12">
+        <img src="http://www.zombievavoom.com/images/dawn-of-the-dead-movie-poster-2004.jpg">
+        <div class="caption text-center">
+          <h3>Dawn of the Dead</h3>
+          <p>2004</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-12">
+        <img src="https://s-media-cache-ak0.pinimg.com/736x/f9/ae/0d/f9ae0d61a0766dec81539aca3e9f48c0.jpg">
+        <div class="caption text-center">
+          <h3>Cast Away</h3>
+          <p>2000</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-12">
+        <img src="http://33hpwq10j9luq8gl43e62q4e.wpengine.netdna-cdn.com/images/batman-vs-superman-poster.jpg">
+        <div class="caption text-center">
+          <h3>Batman vs. Superman</h3>
+          <p>2016</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="src/js/main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>

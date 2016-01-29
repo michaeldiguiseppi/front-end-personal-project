@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mike's Movie Database</title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" style="border-radius: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MMDB</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li class="active"><a href="collection.html">My Collection<span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container" style="margin-left: 5px">
+        <div class="col-lg-2 col-sm-2 sidebar">
+            <div class="text-left">
+                <h3>Filter Movies</h3>
+                <hr>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Genre <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Comedy</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Horror</a></li>
+                    <li><a href="#">Sci-Fi</a></li>
+                  </ul>
+                </div>
+                <br><br>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Type <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Movie</a></li>
+                    <li><a href="#">TV Show</a></li>
+                    <li><a href="#">Documentary</a></li>
+                  </ul>
+                </div>
+                <br><br>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Year Released <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Before 1980</a></li>
+                    <li><a href="#">1981-1991</a></li>
+                    <li><a href="#">1991-2001</a></li>
+                    <li><a href="#">2001-2011</a></li>
+                    <li><a href="#">2011+</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/collection.js"></script>
+  </body>
+</html>
