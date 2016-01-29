@@ -8,7 +8,9 @@ $(document).on('ready', function() {
         event.preventDefault();
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
-        queryAPIForResults(setUrl (inputSearchFieldText));
+        var url = setUrl(inputSearchFieldText)
+        queryAPIForResults(url);
+
      });
 
 });
@@ -28,7 +30,7 @@ function setSearchPlaceholderText () {
 /* Set the url to be used for the API call based on which radio button is checked */
 
 function setUrl (searchTerm) {
-     var baseUrl = 'http://www.omdbapi.com/?';
+     var baseUrl = 'https://www.omdbapi.com/?';
      var keyWords = '';
      if ($('input[name="optionsRadios"]:checked').val() === 'option1') {
         keyWords = 't=' + searchTerm;
@@ -52,8 +54,16 @@ function queryAPIForResults (url) {
     }
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+        appendDataToDom(response);
     });
+}
+
+function appendDataToDom (movieObj) {
+ for (var key in movieObj) {
+        if (key !== 'Poster')
+            console.log('Key: ', key);
+          $('#searchResults').append('<li>' + key + ': ' + movieObj[key] + '</li>');
+      };
 }
 
 

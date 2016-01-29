@@ -1,0 +1,9 @@
+{
+  "firebase": "mmdb-movie-database",
+  "public": "./src",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
