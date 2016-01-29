@@ -22,6 +22,10 @@ $(document).on('ready', function() {
         queryAPIForResults(url);
      });
 
+     $('#reset').on('click', function() {
+        resetForm();
+     });
+
 });
 
 /*  Set the placeholder text in the search box, depending on search type */
