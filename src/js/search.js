@@ -93,7 +93,6 @@ function appendDataToDom (response) {
 /* Reset the form back to the default states */
 
 function resetForm () {
-  $('#reset').click();
   $('#searchResults').text('');
 };
 
