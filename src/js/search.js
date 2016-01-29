@@ -1,4 +1,11 @@
+var Firebase = require("firebase");
+
+
 $(document).on('ready', function() {
+
+    /* Set Firebase Reference */
+
+    var myFirebaseRef = new Firebase("https://mmdb-movie-database.firebaseapp.com/");
 
     /* Set placeholder text */
     setSearchPlaceholderText();
@@ -20,7 +27,8 @@ $(document).on('ready', function() {
         event.preventDefault();
         $('#reset').click();
         var url = setUrl($(this).attr('id'));
-        queryAPIForResults(url);
+        var result = queryAPIForResults(url);
+        myFirebaseRef.set(result);
      });
 
      $('#reset').on('click', function() {
@@ -53,7 +61,6 @@ function setUrl (searchTerm) {
      }
 
      url = baseUrl + keyWords;
-     console.log('Keywords: ', keyWords, 'Full url: ', url);
      return url;
 };
 
@@ -81,12 +88,13 @@ function appendDataToDom (response) {
         for (var key in response) {
             if (key !== 'Poster')
               $('#searchResults').append('<li>' + key + ': ' + response[key] + '</li>');
+
           };
     } else {
         response.Search.forEach(function(obj) {
-                // $('#results').append('<img src="' + obj.Poster + '">');
-                $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
-            });
+            // $('#results').append('<img src="' + obj.Poster + '">');
+            $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
+        });
     };
 };
 
