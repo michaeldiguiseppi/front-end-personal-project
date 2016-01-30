@@ -4,6 +4,14 @@
     color: #317EAC;
 }
 
+.homepage-hover:hover {
+    background-color: #EEEEEE;
+
+}
+
+.hidden {
+    display: none;
+}
 
 #searchResults {
     min-height: 500px;
@@ -25,7 +33,15 @@
 }
 
 
-footer {
-    position: relative;
-    bottom: 0;
+.randomMovie {
+    min-height: 900px;
+}
+
+.list-group {
+    margin-left: 10px;
+}
+
+.posterImages {
+    height: 300px;
+    width: 250px;
 }

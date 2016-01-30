@@ -25,6 +25,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="search.html">Search</a></li>
         <li class="active"><a href="collection.html">My Collection<span class="sr-only">(current)</span></a></li>
+        <li><a href="randomize.html">What to Watch</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Sign In</a></li>
@@ -43,15 +44,15 @@
                     Genre <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Comedy</a></li>
-                    <li><a href="#">Documentary</a></li>
-                    <li><a href="#">Drama</a></li>
-                    <li><a href="#">Horror</a></li>
-                    <li><a href="#">Indie</a></li>
-                    <li><a href="#">Romantic Comedy</a></li>
-                    <li><a href="#">Sci-Fi</a></li>
-                    <li><a href="#">Thriller</a></li>
+                    <li><a href="#" class="sortAnchor action">Action</a></li>
+                    <li><a href="#" class="sortAnchor comedy">Comedy</a></li>
+                    <li><a href="#" class="sortAnchor documentary">Documentary</a></li>
+                    <li><a href="#" class="sortAnchor drama">Drama</a></li>
+                    <li><a href="#" class="sortAnchor horror">Horror</a></li>
+                    <li><a href="#" class="sortAnchor indie">Indie</a></li>
+                    <li><a href="#" class="sortAnchor romcom">Romantic Comedy</a></li>
+                    <li><a href="#" class="sortAnchor scifi">Sci-Fi</a></li>
+                    <li><a href="#" class="sortAnchor thriller">Thriller</a></li>
                   </ul>
                 </div>
                 <br><br>
@@ -60,9 +61,9 @@
                     Type <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Movie</a></li>
-                    <li><a href="#">TV Show</a></li>
-                    <li><a href="#">Documentary</a></li>
+                    <li><a href="#" class="sortAnchor">Movie</a></li>
+                    <li><a href="#" class="sortAnchor">TV Show</a></li>
+                    <li><a href="#" class="sortAnchor">Documentary</a></li>
                   </ul>
                 </div>
                 <br><br>
@@ -71,11 +72,11 @@
                     Year Released <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Before 1980</a></li>
-                    <li><a href="#">1981-1991</a></li>
-                    <li><a href="#">1991-2001</a></li>
-                    <li><a href="#">2001-2011</a></li>
-                    <li><a href="#">2011+</a></li>
+                    <li><a href="#" class="sortAnchor">Before 1980</a></li>
+                    <li><a href="#" class="sortAnchor">1981-1991</a></li>
+                    <li><a href="#" class="sortAnchor">1991-2001</a></li>
+                    <li><a href="#" class="sortAnchor">2001-2011</a></li>
+                    <li><a href="#" class="sortAnchor">2011+</a></li>
                   </ul>
                 </div>
                 <br><br>
@@ -84,23 +85,21 @@
                     IMDB Rating<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Less than 5</a></li>
-                    <li><a href="#">5.1-6.0</a></li>
-                    <li><a href="#">6.1-7.0</a></li>
-                    <li><a href="#">7.1-8.0</a></li>
-                    <li><a href="#">8.1-9.0</a></li>
-                    <li><a href="#">9.1-10.0</a></li>
+                    <li><a href="#" class="sortAnchor">Less than 5</a></li>
+                    <li><a href="#" class="sortAnchor">5.1-6.0</a></li>
+                    <li><a href="#" class="sortAnchor">6.1-7.0</a></li>
+                    <li><a href="#" class="sortAnchor">7.1-8.0</a></li>
+                    <li><a href="#" class="sortAnchor">8.1-9.0</a></li>
+                    <li><a href="#" class="sortAnchor">9.1-10.0</a></li>
                   </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container" style="height: 1000px">
-      <div class="row">
-
+      <div class="col-lg-19 col-lg-offset-3">
+        <div class="movieCollection"></div>
       </div>
-    </div>
+</div>
   <footer>
     <nav class="navbar navbar-inverse navbar-bottom">
       <div class="container">
@@ -113,6 +112,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/movieObject.js"></script>
     <script type="text/javascript" src="js/collection.js"></script>
   </body>
 </html>

@@ -3,7 +3,6 @@
 
 $(document).on('ready', function() {
 
-    /* Set Firebase Reference */
 
 
     /* Set placeholder text */
@@ -16,7 +15,8 @@ $(document).on('ready', function() {
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
         var url = setUrl(inputSearchFieldText)
-        queryAPIForResults(url);
+        var result = queryAPIForResults(url);
+
 
      });
 
@@ -102,5 +102,18 @@ function resetForm () {
   $('#searchResults').text('');
   $('input[id="titleSearch"]').attr('placeholder', 'Title');
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
