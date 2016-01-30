@@ -85,9 +85,9 @@ function appendDataToDom (response) {
     if ( !response.Search ) {
         for (var key in response) {
             if (key !== 'Poster' && key !== 'Writer') {
-              $('#searchResults').append('<li>' + key + ': ' + response[key] + '</li>');
+              $('#searchResults').append('<li class="list-group-item">' + key + ': ' + response[key] + '</li>');
             } else if (key === 'Poster') {
-                $('#searchResults').prepend('<img src="' + response[key] + '"><br>');
+                $('#moviePoster').append('<img src="' + response[key] + '">');
             };
         };
     } else {
@@ -102,6 +102,7 @@ function appendDataToDom (response) {
 
 function resetForm () {
   $('#searchResults').text('');
+  $('#moviePoster').text('');
   $('input[id="titleSearch"]').attr('placeholder', 'Title');
 };
 
