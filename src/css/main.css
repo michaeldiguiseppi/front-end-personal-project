@@ -9,8 +9,8 @@
 
 }
 
-.hidden {
-    display: none;
+.hiddenButton {
+    visibility: hidden;
 }
 
 #searchResults {
