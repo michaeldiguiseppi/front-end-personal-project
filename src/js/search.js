@@ -15,7 +15,7 @@ $(document).on('ready', function() {
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
         var url = setUrl(inputSearchFieldText)
-        var result = queryAPIForResults(url);
+        queryAPIForResults(url);
 
 
      });
@@ -26,7 +26,7 @@ $(document).on('ready', function() {
         event.preventDefault();
         $('#reset').click();
         var url = setUrl($(this).attr('id'));
-        var result = queryAPIForResults(url);
+        queryAPIForResults(url);
      });
 
      $('#reset').on('click', function() {
@@ -84,10 +84,12 @@ function appendDataToDom (response) {
     console.log(response);
     if ( !response.Search ) {
         for (var key in response) {
-            if (key !== 'Poster')
+            if (key !== 'Poster' && key !== 'Writer') {
               $('#searchResults').append('<li>' + key + ': ' + response[key] + '</li>');
-
-          };
+            } else if (key === 'Poster') {
+                $('#searchResults').prepend('<img src="' + response[key] + '"><br>');
+            };
+        };
     } else {
         response.Search.forEach(function(obj) {
             // $('#results').append('<img src="' + obj.Poster + '">');
