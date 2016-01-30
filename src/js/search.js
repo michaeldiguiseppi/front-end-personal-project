@@ -33,6 +33,13 @@ $(document).on('ready', function() {
         resetForm();
      });
 
+     /* Show the button on hover of the movie poster */
+
+    $('img').hover(function() {
+        var button = $(this).find('button');
+        button.toggleClass('hiddenButton');
+    });
+
 });
 
 /*  Set the placeholder text in the search box, depending on search type */
@@ -87,7 +94,7 @@ function appendDataToDom (response) {
             if (key !== 'Poster' && key !== 'Writer') {
               $('#searchResults').append('<li class="list-group-item">' + key + ': ' + response[key] + '</li>');
             } else if (key === 'Poster') {
-                $('#moviePoster').append('<img src="' + response[key] + '">');
+                $('#moviePoster').append('<div class="imgButton"><img src="' + response[key] + '"><br><br><button type="submit" class="btn btn-success btn-block halfSize">Add to My Collection</button></div>');
             };
         };
     } else {

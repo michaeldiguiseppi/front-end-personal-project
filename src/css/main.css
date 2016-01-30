@@ -13,6 +13,10 @@
     visibility: hidden;
 }
 
+.halfSize {
+    width: 54%;
+}
+
 #searchResults {
     min-height: 500px;
     border-right: 2px solid #EEEEEE;
