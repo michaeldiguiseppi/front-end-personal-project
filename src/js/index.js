@@ -40,7 +40,7 @@ $(document).on('ready', function() {
 
     addDataToMoviePicks(data)
 
-    $(this).find('button').hide();
+    $(this).find('.imgButton button').hide();
 
     $(document).on('mouseenter', '.imgButton', function() {
         var button = $(this).find('button');
