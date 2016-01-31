@@ -75,10 +75,27 @@ function updateLocalStorage (movieObj) {
 function removeDataFromLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
 
+    currentStateOfLocalStorage.forEach(function (movie, index) {
+        if (movie.Title === movieObj.Title) {
+            console.log('do a splice at ', index);
+        }
+    });
+    console.log(movieObj);
+    console.log('do a splice at', 0);
 
     // currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
     // localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
     // console.log(currentStateOfLocalStorage);
+
+
+//     var myArray = [{ title: 'The Incredibles' }, { title: 'Castaway' }]
+// undefined
+// > myArray.forEach(function (movie, index) {
+// if ( movie.title === 'The Incredibles' ) {
+// console.log('do a splice at', index);
+// }
+// ... });
+// do a splice at 0
 }
 
 function addDataFromLocalStorageToDom() {

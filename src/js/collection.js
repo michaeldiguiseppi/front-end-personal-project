@@ -13,7 +13,10 @@ $(document).on('ready', function() {
     });
 
   $(document).on('click', '.removeCollection', function() {
-    removeDataFromLocalStorage();
+    var movieObj = $(this).find('.panel-title');
+    var movieTitle = movieObj.text();
+    debugger;
+    removeDataFromLocalStorage(movieObj);
   })
 
 });
