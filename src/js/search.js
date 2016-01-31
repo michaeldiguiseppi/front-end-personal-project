@@ -15,7 +15,7 @@ $(document).on('ready', function() {
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
         var url = setUrl(inputSearchFieldText)
-        var results = queryAPIForResults(url);
+        queryAPIForResults(url);
 
 
      });

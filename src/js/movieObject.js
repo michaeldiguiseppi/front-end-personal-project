@@ -71,6 +71,7 @@ function updateLocalStorage (movieObj) {
 }
 
 
+
 function removeDataFromLocalStorage () {
 
 }
