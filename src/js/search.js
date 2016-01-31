@@ -17,7 +17,6 @@ $(document).on('ready', function() {
         var url = setUrl(inputSearchFieldText)
         queryAPIForResults(url);
 
-
      });
 
      /* Allow the user to click the links to search the individual movie */
@@ -83,6 +82,9 @@ function queryAPIForResults (url) {
         resetForm();
         appendDataToDom(response);
         $('.collectBtn').on('click', function() {
+            $(this).addClass('btn-disabled');
+            $(this).prop('disabled', true);
+            $(this).text('Added');
             updateLocalStorage(response);
         });
     });

@@ -75,9 +75,10 @@ function updateLocalStorage (movieObj) {
 function removeDataFromLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
 
-    currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
-    localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
-    console.log(currentStateOfLocalStorage);
+
+    // currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
+    // localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
+    // console.log(currentStateOfLocalStorage);
 }
 
 function addDataFromLocalStorageToDom() {

@@ -46,8 +46,6 @@ $(document).on('ready', function() {
         var button = $(this).find('button');
         button.show();
 
-
-
     });
 
     $(document).on('mouseleave', '.imgButton', function() {
@@ -68,7 +66,7 @@ function addDataToMoviePicks(data) {
     });
     for (var i = 0; i < data.length; i++) {
             $('.addCollection').on('click', function() {
-                updateLocalStorage(data[i]);
+                updateLocalStorage(this);
             });
         };
 
