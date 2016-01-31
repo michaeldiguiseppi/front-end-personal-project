@@ -72,15 +72,19 @@ function updateLocalStorage (movieObj) {
 
 
 
-function removeDataFromLocalStorage () {
+function removeDataFromLocalStorage (movieObj) {
+    var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
 
+    currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
+    localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
+    console.log(currentStateOfLocalStorage);
 }
 
 function addDataFromLocalStorageToDom() {
     $('.myCollection').empty();
     var allMovies = JSON.parse(localStorage.getItem('movies'));
     allMovies.forEach(function(obj) {
-        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.imdbRating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize">Remove From Collection</button></ul></div></div>');
+        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.imdbRating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize removeCollection">Remove From Collection</button></ul></div></div>');
     });
 }
 

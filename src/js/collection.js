@@ -12,6 +12,10 @@ $(document).on('ready', function() {
 
     });
 
+  $(document).on('click', '.removeCollection', function() {
+    removeDataFromLocalStorage();
+  })
+
 });
 
 
