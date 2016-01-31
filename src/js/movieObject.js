@@ -5,7 +5,7 @@ var movieData = [
             Year: '1995',
             Genre: 'Comedy',
             Type: 'Movie',
-            Rating: '8.3'
+            imdbRating: '8.3'
         },
         {
             Poster: 'http://ia.media-imdb.com/images/M/MV5BMTQ0OTU0NTcyNl5BMl5BanBnXkFtZTcwOTk5Mjc4OA@@._V1_SX300.jpg',
@@ -13,7 +13,7 @@ var movieData = [
             Year: '1999',
             Genre: 'Comedy',
             Type: 'Movie',
-            Rating: '7.9'
+            imdbRating: '7.9'
         },
         {
             Poster: 'http://ia.media-imdb.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg',
@@ -21,7 +21,7 @@ var movieData = [
             Year: '2010',
             Genre: 'Comedy',
             Type: 'Movie',
-            Rating: '8.4'
+            imdbRating: '8.4'
         },
         {
             Poster: 'http://ia.media-imdb.com/images/M/MV5BMTI2MDY0ODEwNF5BMl5BanBnXkFtZTYwMDI2NTk4._V1_SX300.jpg',
@@ -29,7 +29,7 @@ var movieData = [
             Year: '2000',
             Genre: 'Drama',
             Type: 'Movie',
-            Rating: '7.7'
+            imdbRating: '7.7'
         },
         {
             Poster: 'http://ia.media-imdb.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_SX300.jpg',
@@ -37,9 +37,12 @@ var movieData = [
             Year: '2013',
             Genre: 'Comedy',
             Type: 'Movie',
-            Rating: '7.6'
+            imdbRating: '7.6'
         }
     ];
+
+
+
 
 
 $(document).ready(function() {
@@ -48,6 +51,7 @@ $(document).ready(function() {
     addDataFromLocalStorageToDom();
 
 });
+
 
 
 
@@ -61,8 +65,9 @@ function seedDataToLocalStorage () {
 function updateLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
 
-    localStorage.setItem('movies', JSON.stringify(movieObj));
-    console.log(movieObj);
+    currentStateOfLocalStorage.push(movieObj);
+    localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
+    console.log(currentStateOfLocalStorage);
 }
 
 
@@ -74,7 +79,7 @@ function addDataFromLocalStorageToDom() {
     $('.myCollection').empty();
     var allMovies = JSON.parse(localStorage.getItem('movies'));
     allMovies.forEach(function(obj) {
-        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.Rating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize">Remove From Collection</button></ul></div></div>');
+        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.imdbRating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize">Remove From Collection</button></ul></div></div>');
     });
 }
 

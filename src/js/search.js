@@ -15,7 +15,7 @@ $(document).on('ready', function() {
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
         var url = setUrl(inputSearchFieldText)
-        queryAPIForResults(url);
+        var results = queryAPIForResults(url);
 
 
      });
@@ -82,6 +82,9 @@ function queryAPIForResults (url) {
     $.ajax(settings).done(function (response) {
         resetForm();
         appendDataToDom(response);
+        $('.collectBtn').on('click', function() {
+            updateLocalStorage(response);
+        });
     });
 }
 
@@ -94,7 +97,7 @@ function appendDataToDom (response) {
             if (key !== 'Poster' && key !== 'Writer') {
               $('#searchResults').append('<li class="list-group-item">' + key + ': ' + response[key] + '</li>');
             } else if (key === 'Poster') {
-                $('#moviePoster').append('<div class="imgButton"><img src="' + response[key] + '"><br><br><button type="submit" class="btn btn-success btn-block halfSize">Add to Collection</button></div>');
+                $('#moviePoster').append('<div class="imgButton"><img src="' + response[key] + '"><br><br><button type="submit" class="btn btn-success btn-block halfSize collectBtn">Add to Collection</button></div>');
             };
         };
     } else {
