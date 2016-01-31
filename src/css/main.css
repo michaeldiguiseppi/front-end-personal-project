@@ -1,8 +1,13 @@
-/* add custom styles */
+
+
+/* Styling the jumbotron on the home page */
+
 .jumbotron {
     margin-top: -20px;
     color: #317EAC;
 }
+
+/* Styling the hover effects of the buttons on home and search pages */
 
 .homepage-hover:hover {
     background-color: #EEEEEE;
@@ -17,11 +22,27 @@
     width: 54%;
 }
 
+
+/* Styling the search results field */
+
 #searchResults {
     min-height: 500px;
     border-right: 2px solid #EEEEEE;
     margin-right: -15px;
 }
+
+/* Styling the search page results and the collection information */
+
+.list-group {
+    margin-left: 10px;
+}
+
+.posterImages {
+    height: 300px;
+    width: 250px;
+}
+
+/* Styling the footer and header nav bars */
 
 
 .navbar p {
@@ -37,15 +58,11 @@
 }
 
 
+/* Styling the last page when empty */
+
 .randomMovie {
-    min-height: 900px;
+    min-height: 575px;
 }
 
-.list-group {
-    margin-left: 10px;
-}
 
-.posterImages {
-    height: 300px;
-    width: 250px;
-}
+
