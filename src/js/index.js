@@ -78,10 +78,6 @@ function addDataToMoviePicks(data) {
     data.forEach(function(piece) {
         $('#moviePosters').append('<div class="col-lg-3 col-sm-12"><div class="homepage-hover imgButton"><img src="'+piece.Poster+'" height="300px" width="250px"><div class="caption text-center"><button type="submit" class="btn btn-success btn-block addCollection" id="'+piece.Title+'">Add to Collection</button><h3>'+piece.Title+'</h3><p>Release Year: '+piece.Year+'<br>IMDB Rating: '+piece.imdbRating+'<br>Genre: '+piece.Genre+'</p></div></div></div>');
     });
-
-
-
-
 };
 
 
