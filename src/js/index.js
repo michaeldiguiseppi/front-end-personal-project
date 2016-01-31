@@ -45,14 +45,28 @@ $(document).on('ready', function() {
     $(document).on('mouseenter', '.imgButton', function() {
         var button = $(this).find('button');
         button.show();
-
     });
+
+
 
     $(document).on('mouseleave', '.imgButton', function() {
         var button = $(this).find('button');
         button.hide();
     })
 
+    $(document).on('click', '.addCollection', function() {
+        var movieObj = $(this).attr('id');
+        var thisTitle = data.filter(function (movie) {
+            return movie.Title === movieObj;
+        });
+        var reducedMovie = thisTitle.reduce(function (movie, value, key) {
+            movie[key] = value;
+            return movie;
+        });
+        updateLocalStorage(reducedMovie);
+        $(this).prop('disabled', true);
+        $(this).text('Added');
+    });
 
 
 
@@ -62,13 +76,11 @@ $(document).on('ready', function() {
 
 function addDataToMoviePicks(data) {
     data.forEach(function(piece) {
-        $('#moviePosters').append('<div class="col-lg-3 col-sm-12"><div class="homepage-hover imgButton"><img src="'+piece.Poster+'" height="300px" width="250px"><div class="caption text-center"><button type="submit" class="btn btn-success btn-block addCollection">Add to Collection</button><h3>'+piece.Title+'</h3><p>Release Year: '+piece.Year+'<br>IMDB Rating: '+piece.imdbRating+'<br>Genre: '+piece.Genre+'</p></div></div></div>');
+        $('#moviePosters').append('<div class="col-lg-3 col-sm-12"><div class="homepage-hover imgButton"><img src="'+piece.Poster+'" height="300px" width="250px"><div class="caption text-center"><button type="submit" class="btn btn-success btn-block addCollection" id="'+piece.Title+'">Add to Collection</button><h3>'+piece.Title+'</h3><p>Release Year: '+piece.Year+'<br>IMDB Rating: '+piece.imdbRating+'<br>Genre: '+piece.Genre+'</p></div></div></div>');
     });
-    for (var i = 0; i < data.length; i++) {
-            $('.addCollection').on('click', function() {
-                updateLocalStorage(this);
-            });
-        };
+
+
+
 
 };
 

@@ -72,37 +72,52 @@ function updateLocalStorage (movieObj) {
 
 
 
+// function removeDataFromLocalStorage (movieObj) {
+//     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
+
+//     currentStateOfLocalStorage.forEach(function (movie, index) {
+//         if (movie.Title === movieObj.Title) {
+//             console.log('do a splice at ', index);
+//         }
+//     });
+//     console.log(movieObj);
+//     console.log('do a splice at', 0);
+
+//     // currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
+//     // localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
+//     // console.log(currentStateOfLocalStorage);
+
+
+// //     var myArray = [{ title: 'The Incredibles' }, { title: 'Castaway' }]
+// // undefined
+// // > myArray.forEach(function (movie, index) {
+// // if ( movie.title === 'The Incredibles' ) {
+// // console.log('do a splice at', index);
+// // }
+// // ... });
+// // do a splice at 0
+// }
+
 function removeDataFromLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
+    //currentStateOfLocalStorage is now an array of objects, we remove the object we dont want using filter, and return an array without that movie object
+    var movieObjectRemoved = findObject(movieObj, currentStateOfLocalStorage);
+    //then push array with movie object removed back into local storage
+    localStorage.setItem('movies', JSON.stringify(movieObjectRemoved));
 
-    currentStateOfLocalStorage.forEach(function (movie, index) {
-        if (movie.Title === movieObj.Title) {
-            console.log('do a splice at ', index);
-        }
+}
+
+function findObject (movieObject, array) {
+    return array.filter(function(el, ind) {
+        return el.Title !== movieObject;
     });
-    console.log(movieObj);
-    console.log('do a splice at', 0);
-
-    // currentStateOfLocalStorage.splice(currentStateOfLocalStorage.indexOf(movieObj), 1);
-    // localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
-    // console.log(currentStateOfLocalStorage);
-
-
-//     var myArray = [{ title: 'The Incredibles' }, { title: 'Castaway' }]
-// undefined
-// > myArray.forEach(function (movie, index) {
-// if ( movie.title === 'The Incredibles' ) {
-// console.log('do a splice at', index);
-// }
-// ... });
-// do a splice at 0
 }
 
 function addDataFromLocalStorageToDom() {
-    $('.myCollection').empty();
+    $('.movieCollection').text('');
     var allMovies = JSON.parse(localStorage.getItem('movies'));
     allMovies.forEach(function(obj) {
-        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.imdbRating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize removeCollection">Remove From Collection</button></ul></div></div>');
+        $('.movieCollection').append('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">'+obj.Title+'</h3></div><div class="panel-body"><img class="posterImages" src="'+obj.Poster+'"><ul class="list-group col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4"><li class="list-group-item">Release Year: '+obj.Year+'</li><li class="list-group-item">Genre: '+obj.Genre+'</li><li class="list-group-item">IMDB Rating: '+obj.imdbRating+'</li><li class="list-group-item">Media Type: '+obj.Type+'</li><br><br><br><button type="submit" class="btn btn-danger btn-block halfSize removeCollection" id="'+obj.Title+'">Remove From Collection</button></ul></div></div>');
     });
 }
 

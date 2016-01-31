@@ -9,15 +9,22 @@ $(document).on('ready', function() {
   });
 
   $('.comedy').on('click', function() {
+        var myCollection = JSON.parse(localStorage.getItem('movies'))
+        myCollection.forEach(function (movie) {
+            var allGenres = movie.Genre.split(', ');
+            return allGenres.filter(function (genre) {
+                return genre === 'Comedy';
+            });
 
+        });
     });
 
   $(document).on('click', '.removeCollection', function() {
-    var movieObj = $(this).find('.panel-title');
-    var movieTitle = movieObj.text();
-    debugger;
+    var movieObj = $(this).attr('id');
     removeDataFromLocalStorage(movieObj);
-  })
+    addDataFromLocalStorageToDom();
+  });
+
 
 });
 
