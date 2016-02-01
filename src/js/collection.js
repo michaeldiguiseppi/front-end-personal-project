@@ -20,12 +20,15 @@ $(document).on('ready', function() {
     });
 
   $(document).on('click', '.removeCollection', function() {
-    var movieObj = $(this).attr('id');
-    removeDataFromLocalStorage(movieObj);
-    addDataFromLocalStorageToDom();
-  });
-
-
+        var movieObj = $(this).attr('id');
+        bootbox.confirm('Are you sure you want to remove this from your collection?', function (result) {
+            if (result) {
+                removeDataFromLocalStorage(movieObj);
+                addDataFromLocalStorageToDom();
+            }
+        }).find('.btn-primary').addClass('btn-info');
+    });
 });
+
 
 
