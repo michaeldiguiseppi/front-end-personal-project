@@ -58,6 +58,14 @@
 }
 
 
+/* Styling the collection page when empty */
+
+.movieCollection {
+    min-height: 525px;
+}
+
+
+
 /* Styling the last page when empty */
 
 .randomMovie {
