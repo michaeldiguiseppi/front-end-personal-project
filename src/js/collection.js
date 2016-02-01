@@ -8,14 +8,38 @@ $(document).on('ready', function() {
     event.preventDefault();
   });
 
-  $('.comedy').on('click', function() {
+    $('.sortAnchor.genre').on('click', function() {
         var myCollection = JSON.parse(localStorage.getItem('movies'))
-        myCollection.forEach(function (movie) {
+        var filterClicked = $(this).text();
+        console.log(filterClicked);
+        var hideMovies = myCollection.filter(function (movie) {
             var allGenres = movie.Genre.split(', ');
-            return allGenres.filter(function (genre) {
-                return genre === 'Comedy';
-            });
+            return allGenres.indexOf(filterClicked) === -1
+        });
 
+
+
+        hideMovies.forEach(function (movieObj) {
+            addDataFromLocalStorageToDom();
+            $('#'+movieObj.imdbID).hide();
+        });
+    });
+
+    $('.sortAnchor.type').on('click', function() {
+        var myCollection = JSON.parse(localStorage.getItem('movies'));
+        var filterClicked = $(this).text();
+        console.log(filterClicked);
+        var hideMovies = myCollection.filter(function (movie) {
+            var movieType = movie.Type;
+            return movieType !== filterClicked.toLowerCase();
+        });
+
+        console.log(hideMovies);
+
+        addDataFromLocalStorageToDom();
+        hideMovies.forEach(function (movieObj) {
+
+            $('#'+movieObj.imdbID).hide();
         });
     });
 
