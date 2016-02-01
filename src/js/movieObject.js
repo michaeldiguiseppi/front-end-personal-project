@@ -100,6 +100,12 @@ function addDataFromLocalStorageToDom() {
     });
 }
 
+function removeAllDataFromLocalStorage() {
+    var removeAll = JSON.parse(localStorage.getItem('movies'));
+    removeAll = [];
+    localStorage.setItem('movies', JSON.stringify(removeAll));
+}
+
 
 
 

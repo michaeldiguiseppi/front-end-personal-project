@@ -28,6 +28,18 @@ $(document).on('ready', function() {
             }
         }).find('.btn-primary').addClass('btn-info');
     });
+
+  $(document).on('click', '.removeAll', function() {
+    bootbox.confirm('Are you sure you want to remove all items from your collection? This cannot be undone.', function (result) {
+            if (result) {
+                removeAllDataFromLocalStorage();
+                addDataFromLocalStorageToDom();
+            };
+        });
+
+  });
+
+
 });
 
 
