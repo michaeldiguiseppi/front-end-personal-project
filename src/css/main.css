@@ -58,10 +58,14 @@
 }
 
 
-/* Styling the collection page when empty */
+/* Styling the collection page */
 
 .movieCollection {
     min-height: 525px;
+}
+
+.hiddenPanel {
+    display: none;
 }
 
 

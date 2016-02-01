@@ -18,10 +18,10 @@ $(document).on('ready', function() {
         });
 
 
-
+        addDataFromLocalStorageToDom();
         hideMovies.forEach(function (movieObj) {
-            addDataFromLocalStorageToDom();
-            $('#'+movieObj.imdbID).hide();
+
+            $('#'+movieObj.imdbID).addClass('hiddenPanel');
         });
     });
 
@@ -38,8 +38,7 @@ $(document).on('ready', function() {
 
         addDataFromLocalStorageToDom();
         hideMovies.forEach(function (movieObj) {
-
-            $('#'+movieObj.imdbID).hide();
+            $('#'+movieObj.imdbID).addClass('hiddenPanel');
         });
     });
 
