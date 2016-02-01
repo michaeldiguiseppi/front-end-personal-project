@@ -9,6 +9,7 @@ $(document).on('ready', function() {
   });
 
     $('.sortAnchor.genre').on('click', function() {
+
         var myCollection = JSON.parse(localStorage.getItem('movies'))
         var filterClicked = $(this).text();
         console.log(filterClicked);
@@ -52,7 +53,7 @@ $(document).on('ready', function() {
         }).find('.btn-primary').addClass('btn-info');
     });
 
-  $(document).on('click', '.removeAll', function() {
+  $('.removeAll').on('click', function() {
     bootbox.confirm('Are you sure you want to remove all items from your collection? This cannot be undone.', function (result) {
             if (result) {
                 removeAllDataFromLocalStorage();
@@ -60,6 +61,10 @@ $(document).on('ready', function() {
             };
         });
 
+  });
+
+  $('.showAll').on('click', function() {
+    addDataFromLocalStorageToDom();
   });
 
 

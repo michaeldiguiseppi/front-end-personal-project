@@ -9,7 +9,8 @@ $(document).on('ready', function() {
         Year: '2014',
         Genre: 'Action',
         Type: 'movie',
-        imdbRating: '6.2'
+        imdbRating: '6.2',
+        imdbID: 'tt1234721'
 
     },
     {
@@ -18,7 +19,8 @@ $(document).on('ready', function() {
         Year: '2000',
         Genre: 'Drama',
         Type: 'movie',
-        imdbRating: '7.7'
+        imdbRating: '7.7',
+        imdbID: 'tt0162222'
     },
     {
         Poster: 'http://ia.media-imdb.com/images/M/MV5BMTUxMjQ5NzgyOF5BMl5BanBnXkFtZTcwNDg0ODYyMQ@@._V1_SX300.jpg',
@@ -26,7 +28,8 @@ $(document).on('ready', function() {
         Year: '2004',
         Genre: 'Drama',
         Type: 'movie',
-        imdbRating: '7.5'
+        imdbRating: '7.5',
+        imdbID: 'tt0338751'
     },
     {
         Poster: 'http://ia.media-imdb.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg',
@@ -34,7 +37,8 @@ $(document).on('ready', function() {
         Year: '2008',
         Genre: 'Action',
         Type: 'movie',
-        imdbRating: '7.9'
+        imdbRating: '7.9',
+        imdbID: 'tt0371746'
     }
 ];
 
@@ -67,16 +71,13 @@ $(document).on('ready', function() {
         $(this).prop('disabled', true);
         $(this).text('Added');
     });
-
-
-
 });
 
 
 
 function addDataToMoviePicks(data) {
     data.forEach(function(piece) {
-        $('#moviePosters').append('<div class="col-lg-3 col-sm-12"><div class="homepage-hover imgButton"><img src="'+piece.Poster+'" height="300px" width="250px"><div class="caption text-center"><button type="submit" class="btn btn-success btn-block addCollection" id="'+piece.Title+'">Add to Collection</button><h3>'+piece.Title+'</h3><p>Release Year: '+piece.Year+'<br>IMDB Rating: '+piece.imdbRating+'<br>Genre: '+piece.Genre+'</p></div></div></div>');
+        $('#moviePosters').append('<div class="col-lg-3 col-sm-12" id="'+piece.imdbID+'"><div class="homepage-hover imgButton"><img src="'+piece.Poster+'" height="300px" width="250px"><div class="caption text-center"><button type="submit" class="btn btn-success btn-block addCollection" id="'+piece.Title+'">Add to Collection</button><h3>'+piece.Title+'</h3><p>Release Year: '+piece.Year+'<br>IMDB Rating: '+piece.imdbRating+'<br>Genre: '+piece.Genre+'</p></div></div></div>');
     });
 };
 
