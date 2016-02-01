@@ -47,9 +47,54 @@ $(document).on('ready', function() {
         var myCollection = JSON.parse(localStorage.getItem('movies'));
         var filterClicked = $(this).text();
         console.log(filterClicked);
+
+        if (filterClicked === '2011 and Newer') {
+            var minYear = filterClicked.substr(0, 4);
+            var maxYear = new Date().getFullYear();
+            console.log('MinYear: ', minYear, 'MaxYear: ', maxYear);
+        } else if (filterClicked.indexOf('-') === -1) {
+            var maxYear = filterClicked.substr(filterClicked.indexOf(' ')+1, 4);
+            var minYear = '1900';
+            console.log('Minimum: ', minYear, 'Maximum: ', maxYear);
+        } else {
+            var minYear = filterClicked.substr(0, 4);
+            var maxYear = filterClicked.substr(filterClicked.indexOf('-')+1, 4);
+            console.log('Min: ', minYear, 'Max: ', maxYear);
+        };
+
+
         var hideMovies = myCollection.filter(function (movie) {
             var movieYear = movie.Year;
-            return movieYear !== filterClicked.toLowerCase();
+            return movieYear < minYear || movieYear > maxYear;
+        });
+
+        console.log(hideMovies);
+
+        addDataFromLocalStorageToDom();
+        hideMovies.forEach(function (movieObj) {
+            $('#'+movieObj.imdbID).addClass('hiddenPanel');
+        });
+    });
+
+$('.sortAnchor.rating').on('click', function() {
+        var myCollection = JSON.parse(localStorage.getItem('movies'));
+        var filterClicked = $(this).text();
+        console.log(filterClicked);
+
+        if (filterClicked.indexOf('-') === -1) {
+            var maxRating = filterClicked.substr(filterClicked.indexOf(' ')+1, 1);
+            var minRating = '0';
+            console.log('Minimum: ', minRating, 'Maximum: ', maxRating);
+        } else {
+            var minRating = filterClicked.substr(0, 3);
+            var maxRating = filterClicked.substr(filterClicked.indexOf('-')+1, 4);
+            console.log('Min: ', minRating, 'Max: ', maxRating);
+        };
+
+
+        var hideMovies = myCollection.filter(function (movie) {
+            var movieRating = movie.imdbRating;
+            return movieRating < minRating || movieRating > maxRating;
         });
 
         console.log(hideMovies);
