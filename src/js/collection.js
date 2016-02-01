@@ -122,15 +122,14 @@ $('.sortAnchor.rating').on('click', function() {
                 addDataFromLocalStorageToDom();
             };
         });
-
   });
 
   $('.showAll').on('click', function() {
     addDataFromLocalStorageToDom();
   });
 
-
 });
+
 
 
 
