@@ -43,6 +43,23 @@ $(document).on('ready', function() {
         });
     });
 
+    $('.sortAnchor.year').on('click', function() {
+        var myCollection = JSON.parse(localStorage.getItem('movies'));
+        var filterClicked = $(this).text();
+        console.log(filterClicked);
+        var hideMovies = myCollection.filter(function (movie) {
+            var movieYear = movie.Year;
+            return movieYear !== filterClicked.toLowerCase();
+        });
+
+        console.log(hideMovies);
+
+        addDataFromLocalStorageToDom();
+        hideMovies.forEach(function (movieObj) {
+            $('#'+movieObj.imdbID).addClass('hiddenPanel');
+        });
+    });
+
   $(document).on('click', '.removeCollection', function() {
         var movieObj = $(this).attr('id');
         bootbox.confirm('Are you sure you want to remove this from your collection?', function (result) {

@@ -25,10 +25,16 @@ function seedDataToLocalStorage () {
 function updateLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
 
-    currentStateOfLocalStorage.push(movieObj);
-    localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
-    console.log(currentStateOfLocalStorage);
-}
+    var movieObjectAdd = checkObject(movieObj, currentStateOfLocalStorage);
+
+    if (movieObjectAdd.length > 0) {
+        console.log(movieObjectAdd);
+        bootbox.alert('This item is already in your collection.');
+    } else {
+        currentStateOfLocalStorage.push(movieObj);
+        localStorage.setItem('movies', JSON.stringify(currentStateOfLocalStorage));
+    };
+};
 
 
 function removeDataFromLocalStorage (movieObj) {
@@ -51,6 +57,13 @@ function findObject (movieObject, array) {
         return el.Title !== movieObject;
     });
 }
+
+
+function checkObject (movieObj, array) {
+    return array.filter(function (el, index) {
+        return el.Title === movieObj.Title;
+    });
+};
 
 function addDataFromLocalStorageToDom() {
     $('.movieCollection').text('');
