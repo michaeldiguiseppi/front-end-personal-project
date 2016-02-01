@@ -26,16 +26,17 @@ $(document).on('ready', function() {
         $('#reset').click();
         var url = setUrl($(this).attr('id'));
         queryAPIForResults(url);
+        $('.backButton').prop('disabled', false);
      });
 
      $('#reset').on('click', function() {
         resetForm();
      });
 
-
      $('.backButton').on('click', function(event) {
         event.preventDefault();
         queryAPIForResults(massUrl);
+        $(this).prop('disabled', true);
      });
 
 });
@@ -51,6 +52,7 @@ function setSearchPlaceholderText () {
         }
     });
 }
+
 
 /* Set the url to be used for the API call based on which radio button is checked */
 
