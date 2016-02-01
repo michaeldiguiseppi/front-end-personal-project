@@ -7,9 +7,6 @@ $(document).ready(function() {
     if (currentStateOfLocalStorage.toString() !== "") {
         addDataFromLocalStorageToDom();
     }
-
-
-
 });
 
 
@@ -40,16 +37,9 @@ function updateLocalStorage (movieObj) {
 function removeDataFromLocalStorage (movieObj) {
     var currentStateOfLocalStorage = JSON.parse(localStorage.getItem('movies'));
     //currentStateOfLocalStorage is now an array of objects, we remove the object we dont want using filter, and return an array without that movie object
-    // var test = confirm('Are you sure you want to remove this title from your collection?  This cannot be undone.');
-
-
-    // if (test) {
-        var movieObjectRemoved = findObject(movieObj, currentStateOfLocalStorage);
-        //then push array with movie object removed back into local storage
-        localStorage.setItem('movies', JSON.stringify(movieObjectRemoved));
-    // }
-
-
+    var movieObjectRemoved = findObject(movieObj, currentStateOfLocalStorage);
+    //then push array with movie object removed back into local storage
+    localStorage.setItem('movies', JSON.stringify(movieObjectRemoved));
 }
 
 function findObject (movieObject, array) {

@@ -1,4 +1,4 @@
-
+var massUrl = '';
 
 
 $(document).on('ready', function() {
@@ -14,8 +14,8 @@ $(document).on('ready', function() {
         event.preventDefault();
         var inputSearchFieldText = $('#titleSearch').val();
         /* Set the URL, then use it as an argument to make API call */
-        var url = setUrl(inputSearchFieldText)
-        queryAPIForResults(url);
+        massUrl = setUrl(inputSearchFieldText)
+        queryAPIForResults(massUrl);
 
      });
 
@@ -32,12 +32,11 @@ $(document).on('ready', function() {
         resetForm();
      });
 
-     /* Show the button on hover of the movie poster */
 
-    $('img').hover(function() {
-        var button = $(this).find('button');
-        button.toggleClass('hiddenButton');
-    });
+     $('.backButton').on('click', function(event) {
+        event.preventDefault();
+        queryAPIForResults(massUrl);
+     });
 
 });
 
@@ -104,7 +103,6 @@ function appendDataToDom (response) {
         };
     } else {
         response.Search.forEach(function(obj) {
-            // $('#results').append('<img src="' + obj.Poster + '">');
             $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
         });
     };
