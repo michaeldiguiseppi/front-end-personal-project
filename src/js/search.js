@@ -10,36 +10,17 @@ $(document).on('ready', function() {
     resetForm();
 
     /* Set URL, then run API call with it */
-     $('.submit').on('click', function(event) {
-        event.preventDefault();
-        var inputSearchFieldText = $('#titleSearch').val();
-        /* Set the URL, then use it as an argument to make API call */
-        massUrl = setUrl(inputSearchFieldText)
-        queryAPIForResults(massUrl);
-     });
+     $('.submit').on('click', runApiQueryFromInput);
 
      /* Allow the user to click the links to search the individual movie */
 
-     $(document).on('click', '.resultLink', function(event) {
-        event.preventDefault();
-        $('#reset').click();
-        var url = setUrl($(this).attr('id'));
-        var urlYear = '&y=' + $(this).attr('value');
-        url = url + urlYear;
-        queryAPIForResults(url);
-        console.log(url);
-        $('.backButton').prop('disabled', false);
-     });
+     $(document).on('click', '.resultLink', runApiQueryFromResultLink);
 
      $('#reset').on('click', function() {
         resetForm();
      });
 
-     $('.backButton').on('click', function(event) {
-        event.preventDefault();
-        queryAPIForResults(massUrl);
-        $(this).prop('disabled', true);
-     });
+     $('.backButton').on('click', runApiQueryFromBackButton);
 
 });
 
@@ -53,6 +34,30 @@ function setSearchPlaceholderText () {
             $('#titleSearch').attr('placeholder', 'Keyword');
         }
     });
+}
+
+function runApiQueryFromInput (event) {
+    event.preventDefault();
+    var inputSearchFieldText = $('#titleSearch').val();
+    /* Set the URL, then use it as an argument to make API call */
+    massUrl = setUrl(inputSearchFieldText)
+    queryAPIForResults(massUrl);
+}
+
+function runApiQueryFromResultLink (event) {
+    event.preventDefault();
+    $('#reset').click();
+    var url = setUrl($(this).attr('id'));
+    var urlYear = '&y=' + $(this).attr('value');
+    url = url + urlYear;
+    queryAPIForResults(url);
+    $('.backButton').prop('disabled', false);
+}
+
+function runApiQueryFromBackButton (event) {
+    event.preventDefault();
+    queryAPIForResults(massUrl);
+    $(this).prop('disabled', true);
 }
 
 
