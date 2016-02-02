@@ -4,105 +4,38 @@
 
 $(document).on('ready', function() {
   console.log('Collection!');
-  $('.sortAnchor').on('click', function(event) {
-    event.preventDefault();
-  });
 
-    $('.sortAnchor.genre').on('click', function() {
-
-        var myCollection = JSON.parse(localStorage.getItem('movies'))
-        var filterClicked = $(this).text();
-        console.log(filterClicked);
-        var hideMovies = myCollection.filter(function (movie) {
-            var allGenres = movie.Genre.split(', ');
-            return allGenres.indexOf(filterClicked) === -1
-        });
-
-
+    $('#apply-filters').on('click', function(event) {
+        event.preventDefault();
         addDataFromLocalStorageToDom();
-        hideMovies.forEach(function (movieObj) {
-
-            $('#'+movieObj.imdbID).addClass('hiddenPanel');
-        });
-    });
-
-    $('.sortAnchor.type').on('click', function() {
-        var myCollection = JSON.parse(localStorage.getItem('movies'));
-        var filterClicked = $(this).text();
-        console.log(filterClicked);
-        var hideMovies = myCollection.filter(function (movie) {
-            var movieType = movie.Type;
-            return movieType !== filterClicked.toLowerCase();
-        });
-
-        console.log(hideMovies);
-
-        addDataFromLocalStorageToDom();
-        hideMovies.forEach(function (movieObj) {
-            $('#'+movieObj.imdbID).addClass('hiddenPanel');
-        });
-    });
-
-    $('.sortAnchor.year').on('click', function() {
-        var myCollection = JSON.parse(localStorage.getItem('movies'));
-        var filterClicked = $(this).text();
-        console.log(filterClicked);
-
-        if (filterClicked === '2011 and Newer') {
-            var minYear = filterClicked.substr(0, 4);
-            var maxYear = new Date().getFullYear();
-            console.log('MinYear: ', minYear, 'MaxYear: ', maxYear);
-        } else if (filterClicked.indexOf('-') === -1) {
-            var maxYear = filterClicked.substr(filterClicked.indexOf(' ')+1, 4);
-            var minYear = '1900';
-            console.log('Minimum: ', minYear, 'Maximum: ', maxYear);
+        var selectedFilters = {};
+        selectedFilters.Genre = $('option[data-name="genre"]:selected').val();
+        selectedFilters.Type = $('option[data-name="type"]:selected').val();
+        if ($('option[data-name="year"]:selected').val() !== "") {
+            selectedFilters.Years = $('option[data-name="year"]:selected').val().split('-');
         } else {
-            var minYear = filterClicked.substr(0, 4);
-            var maxYear = filterClicked.substr(filterClicked.indexOf('-')+1, 4);
-            console.log('Min: ', minYear, 'Max: ', maxYear);
-        };
-
-
-        var hideMovies = myCollection.filter(function (movie) {
-            var movieYear = movie.Year;
-            return movieYear < minYear || movieYear > maxYear;
-        });
-
-        console.log(hideMovies);
-
-        addDataFromLocalStorageToDom();
-        hideMovies.forEach(function (movieObj) {
-            $('#'+movieObj.imdbID).addClass('hiddenPanel');
-        });
-    });
-
-$('.sortAnchor.rating').on('click', function() {
-        var myCollection = JSON.parse(localStorage.getItem('movies'));
-        var filterClicked = $(this).text();
-        console.log(filterClicked);
-
-        if (filterClicked.indexOf('-') === -1) {
-            var maxRating = filterClicked.substr(filterClicked.indexOf(' ')+1, 1);
-            var minRating = '0';
-            console.log('Minimum: ', minRating, 'Maximum: ', maxRating);
+            selectedFilters.Years = "";
+        }
+        if ($('option[data-name="rating"]:selected').val() !== "") {
+            selectedFilters.imdbRating = $('option[data-name="rating"]:selected').val().split('-');
         } else {
-            var minRating = filterClicked.substr(0, 3);
-            var maxRating = filterClicked.substr(filterClicked.indexOf('-')+1, 4);
-            console.log('Min: ', minRating, 'Max: ', maxRating);
-        };
+            selectedFilters.imdbRating = "";
+        }
+        var movies = JSON.parse(localStorage.getItem('movies'));
+
+        var hideMovies = filterData(movies, selectedFilters) // array of new data
 
 
-        var hideMovies = myCollection.filter(function (movie) {
-            var movieRating = movie.imdbRating;
-            return movieRating < minRating || movieRating > maxRating;
-        });
-
-        console.log(hideMovies);
-
-        addDataFromLocalStorageToDom();
-        hideMovies.forEach(function (movieObj) {
+        movies.forEach(function (movieObj) {
             $('#'+movieObj.imdbID).addClass('hiddenPanel');
         });
+        hideMovies.forEach(function (movieObj) {
+            $('#'+movieObj.imdbID).removeClass('hiddenPanel');
+        });
+
+
+
+
     });
 
   $(document).on('click', '.removeCollection', function() {
@@ -126,9 +59,36 @@ $('.sortAnchor.rating').on('click', function() {
 
   $('.showAll').on('click', function() {
     addDataFromLocalStorageToDom();
+    $('option[value=""]').prop('selected', true);
   });
 
 });
+
+
+function filterData(movies, filters) {
+    return movies.filter(function (movie) {
+        var allGenres = movie.Genre.split(', ');
+        var thisGenre = allGenres.filter(function (genre) {
+            return genre === filters.Genre;
+        });
+        return thisGenre[0] === filters.Genre || !filters.Genre;
+    }).filter(function (movie) {
+        return movie.Type === filters.Type || !filters.Type;
+    }).filter(function (movie) {
+        if (filters.Years === "") {
+            return !filters.Years;
+        } else {
+            return (movie.Year >= filters.Years[0] && movie.Year <= filters.Years[1])
+        };
+    }).filter(function (movie) {
+        if (filters.imdbRating === "") {
+            return !filters.imdbRating;
+        } else {
+            return (movie.imdbRating >= filters.imdbRating[0] && movie.imdbRating <= filters.imdbRating[1]);
+        };
+    });
+};
+
 
 
 

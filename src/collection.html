@@ -40,63 +40,49 @@
             <div class="text-left">
                 <h3>Filter Movies</h3>
                 <hr>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Genre <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="sortAnchor genre">Action</a></li>
-                    <li><a href="#" class="sortAnchor genre">Adventure</a></li>
-                    <li><a href="#" class="sortAnchor genre">Animation</a></li>
-                    <li><a href="#" class="sortAnchor genre">Comedy</a></li>
-                    <li><a href="#" class="sortAnchor genre">Documentary</a></li>
-                    <li><a href="#" class="sortAnchor genre">Drama</a></li>
-                    <li><a href="#" class="sortAnchor genre">Family</a></li>
-                    <li><a href="#" class="sortAnchor genre">Horror</a></li>
-                    <li><a href="#" class="sortAnchor genre">Indie</a></li>
-                    <li><a href="#" class="sortAnchor genre">Romance</a></li>
-                    <li><a href="#" class="sortAnchor genre">Sci-Fi</a></li>
-                    <li><a href="#" class="sortAnchor genre">Thriller</a></li>
-                  </ul>
-                </div>
-                <br><br>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Type <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="sortAnchor type">Movie</a></li>
-                    <li><a href="#" class="sortAnchor type">Series</a></li>
-                  </ul>
-                </div>
-                <br><br>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Year Released <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="sortAnchor year">Before 1980</a></li>
-                    <li><a href="#" class="sortAnchor year">1981-1991</a></li>
-                    <li><a href="#" class="sortAnchor year">1991-2001</a></li>
-                    <li><a href="#" class="sortAnchor year">2001-2011</a></li>
-                    <li><a href="#" class="sortAnchor year" id="maxiumum">2011 and Newer</a></li>
-                  </ul>
-                </div>
-                <br><br>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    IMDB Rating<span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="sortAnchor rating">&lt; 5</a></li>
-                    <li><a href="#" class="sortAnchor rating">5.1-6.0</a></li>
-                    <li><a href="#" class="sortAnchor rating">6.1-7.0</a></li>
-                    <li><a href="#" class="sortAnchor rating">7.1-8.0</a></li>
-                    <li><a href="#" class="sortAnchor rating">8.1-9.0</a></li>
-                    <li><a href="#" class="sortAnchor rating">9.1-10.0</a></li>
-                  </ul>
-                </div>
+                  <select class="form-control">
+                    <option class="sort-anchor" data-name="genre" value="">-- Select a Genre --</option>
+                    <option class="sort-anchor" data-name="genre" value="Action">Action</option>
+                    <option class="sort-anchor" data-name="genre" value="Adventure">Adventure</option>
+                    <option class="sort-anchor" data-name="genre" value="Animation">Animation</option>
+                    <option class="sort-anchor" data-name="genre" value="Comedy">Comedy</option>
+                    <option class="sort-anchor" data-name="genre" value="Documentary">Documentary</option>
+                    <option class="sort-anchor" data-name="genre" value="Drama">Drama</option>
+                    <option class="sort-anchor" data-name="genre" value="Family">Family</option>
+                    <option class="sort-anchor" data-name="genre" value="Horror">Horror</option>
+                    <option class="sort-anchor" data-name="genre" value="Indie">Indie</option>
+                    <option class="sort-anchor" data-name="genre" value="Romance">Romance</option>
+                    <option class="sort-anchor" data-name="genre" value="Sci-Fi">Sci-Fi</option>
+                    <option class="sort-anchor" data-name="genre" value="Thriller">Thriller</option>
+                  </select>
+                <br>
+                  <select class="form-control">
+                    <option class="sort-anchor" data-name="type" value="">-- Select a Type --</option>
+                    <option class="sort-anchor" data-name="type" value="movie">Movie</option>
+                    <option class="sort-anchor" data-name="type" value="series">Series</option>
+                  </select>
+                <br>
+                  <select class="form-control">
+                    <option class="sort-anchor"  data-name="year" value="">-- Select a Year</option>
+                    <option class="sort-anchor"  data-name="year" value="1900-1980">1900-1980</option>
+                    <option class="sort-anchor"  data-name="year" value="1981-1991">1981-1991</option>
+                    <option class="sort-anchor"  data-name="year" value="1991-2001">1991-2001</option>
+                    <option class="sort-anchor"  data-name="year" value="2001-2011">2001-2011</option>
+                    <option class="sort-anchor"  data-name="year" value="2011-2016">2011-2016</option>
+                  </select>
+                <br>
+                  <select class="form-control">
+                    <option class="sort-anchor" data-name="rating" value="">-- Select a Rating --</option>
+                    <option class="sort-anchor" data-name="rating" value="0.0-5.0">0.0-5.0</option>
+                    <option class="sort-anchor" data-name="rating" value="5.1-6.0">5.1-6.0</option>
+                    <option class="sort-anchor" data-name="rating" value="6.1-7.0">6.1-7.0</option>
+                    <option class="sort-anchor" data-name="rating" value="7.1-8.0">7.1-8.0</option>
+                    <option class="sort-anchor" data-name="rating" value="8.1-9.0">8.1-9.0</option>
+                    <option class="sort-anchor" data-name="rating" value="9.1-10.0">9.1-10.0</option>
+                  </select>
             </div>
+            <br>
+            <button type="submit" class="btn btn-success btn-block" id="apply-filters">Apply Filters</button>
             <br>
             <button type="submit" class="btn btn-info btn-block showAll">Clear Filters</button>
             <br>

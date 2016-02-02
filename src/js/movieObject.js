@@ -51,7 +51,7 @@ function findObject (movieObject, array) {
 
 function checkObject (movieObj, array) {
     return array.filter(function (el, index) {
-        return el.Title === movieObj.Title;
+        return el.Title === movieObj.Title && el.Year === movieObj.Year;
     });
 };
 
