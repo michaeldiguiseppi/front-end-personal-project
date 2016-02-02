@@ -25,7 +25,10 @@ $(document).on('ready', function() {
         event.preventDefault();
         $('#reset').click();
         var url = setUrl($(this).attr('id'));
+        var urlYear = '&y=' + $(this).attr('value');
+        url = url + urlYear;
         queryAPIForResults(url);
+        console.log(url);
         $('.backButton').prop('disabled', false);
      });
 
@@ -105,7 +108,7 @@ function appendDataToDom (response) {
         };
     } else {
         response.Search.forEach(function(obj) {
-            $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
+            $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '" value="'+obj.Year+'">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
         });
     };
 };
