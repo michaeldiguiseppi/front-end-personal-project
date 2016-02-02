@@ -43,8 +43,11 @@ $(document).on('ready', function() {
                 removeDataFromLocalStorage(movieObj);
                 addDataFromLocalStorageToDom();
                 createCounters();
+                setEmptyContent();
             }
         }).find('.btn-primary').addClass('btn-info');
+
+
     });
 
   $('.removeAll').on('click', function() {
@@ -52,6 +55,7 @@ $(document).on('ready', function() {
             if (result) {
                 removeAllDataFromLocalStorage();
                 addDataFromLocalStorageToDom();
+                setEmptyContent();
                 createCounters();
             };
         });
@@ -100,5 +104,9 @@ function createCounters () {
     var collection = JSON.parse(localStorage.getItem('movies'));
     $('#collectionCount').text('Total Items in Your Collection: ' + collection.length);
 };
+
+function setEmptyContent () {
+    $('#emptyContent').text('Oops!  Looks like your collection is empty.  Please use the search page to add items to your collection.');
+}
 
 
