@@ -37,8 +37,3 @@ var data = [
         imdbID: 'tt0371746'
     }
 ];
-
-
-$(document).ready(function() {
-    console.log('models.js loaded');
-});

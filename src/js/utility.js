@@ -1,6 +1,4 @@
-$(document).ready(function() {
-    console.log('utility.js loaded');
-});
+
 
 // ******************************************************** \\
 // *************** DOM Manipulation Methods *************** \\
