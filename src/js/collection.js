@@ -32,10 +32,6 @@ $(document).on('ready', function() {
         hideMovies.forEach(function (movieObj) {
             $('#'+movieObj.imdbID).removeClass('hiddenPanel');
         });
-
-
-
-
     });
 
   $(document).on('click', '.removeCollection', function() {
