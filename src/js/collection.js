@@ -5,6 +5,8 @@
 $(document).on('ready', function() {
   console.log('Collection!');
 
+  createCounters();
+
     $('#apply-filters').on('click', function(event) {
         event.preventDefault();
         addDataFromLocalStorageToDom();
@@ -40,6 +42,7 @@ $(document).on('ready', function() {
             if (result) {
                 removeDataFromLocalStorage(movieObj);
                 addDataFromLocalStorageToDom();
+                createCounters();
             }
         }).find('.btn-primary').addClass('btn-info');
     });
@@ -49,6 +52,7 @@ $(document).on('ready', function() {
             if (result) {
                 removeAllDataFromLocalStorage();
                 addDataFromLocalStorageToDom();
+                createCounters();
             };
         });
   });
@@ -56,6 +60,12 @@ $(document).on('ready', function() {
   $('.showAll').on('click', function() {
     addDataFromLocalStorageToDom();
     $('option[value=""]').prop('selected', true);
+  });
+
+
+  $(document).on('click', '.searchHeading', function() {
+    $('.searchHeading').attr('href', 'search.html');
+
   });
 
 });
@@ -86,6 +96,9 @@ function filterData(movies, filters) {
 };
 
 
-
+function createCounters () {
+    var collection = JSON.parse(localStorage.getItem('movies'));
+    $('#collectionCount').text('Total Items in Your Collection: ' + collection.length);
+};
 
 

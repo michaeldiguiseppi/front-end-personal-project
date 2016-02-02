@@ -16,7 +16,6 @@ $(document).on('ready', function() {
         /* Set the URL, then use it as an argument to make API call */
         massUrl = setUrl(inputSearchFieldText)
         queryAPIForResults(massUrl);
-
      });
 
      /* Allow the user to click the links to search the individual movie */
