@@ -58,12 +58,12 @@ function queryAPIForResults (url) {
 
     $.ajax(settings).done(function (response) {
         resetForm();
-        appendDataToDom(response);
+        myMovieCollection.appendDataToDom(response);
         $('.collectBtn').on('click', function() {
             $(this).addClass('btn-disabled');
             $(this).prop('disabled', true);
             $(this).text('Added');
-            updateLocalStorage(response);
+            myMovieCollection.updateLocalStorage(response);
         });
     });
 };
@@ -81,7 +81,7 @@ function queryAPIForResults (url) {
 
 function applyFilters (event) {
     event.preventDefault();
-    addDataFromLocalStorageToDom();
+    myMovieCollection.addDataFromLocalStorageToDom();
     var selectedFilters = {};
     selectedFilters.Genre = $('option[data-name="genre"]:selected').val();
     selectedFilters.Type = $('option[data-name="type"]:selected').val();
@@ -112,8 +112,8 @@ function confirmRemoval () {
     var movieObj = $(this).attr('id');
     bootbox.confirm('Are you sure you want to remove this from your collection?', function (result) {
         if (result) {
-            removeDataFromLocalStorage(movieObj);
-            addDataFromLocalStorageToDom();
+            myMovieCollection.removeItemFromLocalStorage(movieObj);
+            myMovieCollection.addDataFromLocalStorageToDom();
             createCounters();
             setEmptyContent();
         }
@@ -123,8 +123,8 @@ function confirmRemoval () {
 function confirmRemoveAllItems () {
     bootbox.confirm('Are you sure you want to remove all items from your collection? This cannot be undone.', function (result) {
         if (result) {
-            removeAllDataFromLocalStorage();
-            addDataFromLocalStorageToDom();
+            myMovieCollection.removeAllFromLocalStorage();
+            myMovieCollection.addDataFromLocalStorageToDom();
             setEmptyContent();
             createCounters();
         };
@@ -156,7 +156,7 @@ function filterData(movies, filters) {
 };
 
 function showAllItems () {
-    addDataFromLocalStorageToDom();
+    myMovieCollection.addDataFromLocalStorageToDom();
     $('option[value=""]').prop('selected', true);
 };
 
