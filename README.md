@@ -52,3 +52,7 @@ movie.  This would be a feature on the search page.
 ### Pivotal Tracker
 
 Follow my project on [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/1525201)
+
+### Site Deployed
+
+My project can be viewed at MMDB-Movie-Database.firebaseapp.com.
