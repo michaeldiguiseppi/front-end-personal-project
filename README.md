@@ -55,4 +55,4 @@ Follow my project on [Pivotal Tracker Board](https://www.pivotaltracker.com/n/pr
 
 ### Site Deployed
 
-My project can be viewed at MMDB-Movie-Database.firebaseapp.com.
+My project can be viewed at [on Firebase](https://MMDB-Movie-Database.firebaseapp.com)
