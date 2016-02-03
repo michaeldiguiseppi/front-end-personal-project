@@ -20,9 +20,6 @@ $(document).ready(function() {
     createCounters();
 
 
-
-
-
 });
 
 
@@ -61,34 +58,7 @@ $('.removeAll').on('click', confirmRemoveAllItems);
 
 $('.showAll').on('click', showAllItems);
 
-// $('.randomize').on('click', addRandom);
 
-
-// ******************************************************** \\
-// *************** DOM Manipulation Methods *************** \\
-// ******************************************************** \\
-
-
-
-
-// function appendDataToDom (response) {
-//     console.log(response);
-//     if ( !response.Search ) {
-//         for (var key in response) {
-//             if (key !== 'Poster' && key !== 'Writer') {
-//               $('#searchResults').append('<li class="list-group-item">' + key + ': ' + response[key] + '</li>');
-//             } else if (key === 'Poster') {
-//                 $('#moviePoster').append('<div><img src="' + response[key] + '"><br><br><button type="submit" class="btn btn-success btn-block halfSize collectBtn">Add to Collection</button></div>');
-//             };
-//         };
-//     } else {
-//         response.Search.forEach(function(obj) {
-//             $('#searchResults').append('<li><a href="#" class="resultLink" id="' + obj.Title + '" value="'+obj.Year+'">' + obj.Title + '</a>&nbsp;-&nbsp;' + obj.Year + '</li>');
-//         });
-//     };
-// };
-
-/* Reset the form back to the default states */
 
 function resetForm () {
   $('#searchResults').text('');
