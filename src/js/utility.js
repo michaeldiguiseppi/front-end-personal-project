@@ -1,3 +1,22 @@
+// ****************************************** \\
+// *************** Login Auth *************** \\
+// ****************************************** \\
+
+
+var ref = new Firebase("https://mmdb-movie-database.firebaseio.com");
+
+$('#login-button').on('click', function () {
+    ref.authWithOAuthPopup("facebook", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    $('#login-button').hide();
+    $('.navbar-right').append('<li style="color: white; margin-top: 15px;">Welcome, ' + authData.facebook.displayName+'</li>');
+    console.log("Authenticated successfully with payload:", authData);
+  }
+});
+});
+
 
 
 
