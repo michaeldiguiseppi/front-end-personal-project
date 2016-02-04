@@ -7,6 +7,12 @@
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    addRandom();
+  });
+  </script>
 </head>
 <body>
 <nav class="navbar navbar-inverse" style="border-radius: 0;">
@@ -25,7 +31,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="search.html">Search</a></li>
         <li><a href="collection.html">My Collection</a></li>
-        <li class="active"><a href="randomize.html" id="randomWatch">What to Watch<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="randomize.html" id="randomWatch" class="randomize">What to Watch<span class="sr-only">(current)</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Sign In</a></li>
@@ -51,7 +57,7 @@
 </footer>
 
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/models.js"></script>
     <script type="text/javascript" src="js/utility.js"></script>

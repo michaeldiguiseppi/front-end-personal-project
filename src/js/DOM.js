@@ -19,10 +19,6 @@ $(document).ready(function() {
 
     createCounters();
 
-    var random = findRandomMovie();
-    addHeaderForRandomMovie();
-    addMovieToDom(random);
-
 });
 
 
@@ -109,5 +105,10 @@ function setSearchPlaceholderText () {
     });
 };
 
+function addRandom() {
+        var random = findRandomMovie();
+        addHeaderForRandomMovie();
+        addMovieToDom(random);
+    };
 
 
