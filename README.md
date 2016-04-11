@@ -56,3 +56,4 @@ Follow my project on [Pivotal Tracker Board](https://www.pivotaltracker.com/n/pr
 ### Site Deployed
 
 My project can be viewed at [on Firebase](https://MMDB-Movie-Database.firebaseapp.com)
+or [on EC2](http://movies.mikedee.xyz) (I'm aware the images are not working and I'm currently working on a resolution.)
